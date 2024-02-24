@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://j41gbbp31pi0"]
+
+[ext_resource type="Script" path="res://Scenes/PlayerScript.gd" id="1_80rkn"]
+[ext_resource type="Texture2D" uid="uid://yguqqco2tj38" path="res://Assets/Entities/Character.aseprite" id="2_lw5kb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5wth"]
+atlas = ExtResource("2_lw5kb")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf7rj"]
+atlas = ExtResource("2_lw5kb")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3bwxt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5wth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kf7rj")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1n47y"]
+radius = 8.0
+height = 28.0
+
+[node name="PlayerParent" type="CharacterBody2D"]
+script = ExtResource("1_80rkn")
+
+[node name="PlayerAnimationChild" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3bwxt")
+animation = &"Idle"
+frame = 1
+frame_progress = 0.469199
+
+[node name="PlayerShapeChild" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_1n47y")
