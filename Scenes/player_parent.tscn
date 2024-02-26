@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://j41gbbp31pi0"]
+[gd_scene load_steps=8 format=3 uid="uid://j41gbbp31pi0"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerScript.gd" id="1_80rkn"]
 [ext_resource type="Texture2D" uid="uid://yguqqco2tj38" path="res://Assets/Entities/Character.aseprite" id="2_lw5kb"]
+[ext_resource type="PackedScene" uid="uid://bj46scocgu8g6" path="res://Scenes/dash_component.tscn" id="3_1j17t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d5wth"]
 atlas = ExtResource("2_lw5kb")
@@ -43,3 +44,5 @@ frame_progress = 0.469199
 [node name="PlayerShapeChild" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_1n47y")
+
+[node name="DashComponent" parent="." instance=ExtResource("3_1j17t")]
